@@ -1,0 +1,30 @@
+package com.pwc;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.lang.Math;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] temperatures = {10, -2, 14, 15, 28, 48, -2, 2, 4, -11, 5, -7, 3, 15, 28, 30, -6, -7, -22, -10};
+        List<Integer> result = new ArrayList<>();
+        int d = temperatures[0];
+
+        for (int i = 0; i < temperatures.length; i++) {
+            if (temperatures[i] == 0) {
+                System.out.println("Wsród temperatur jest 0 stopni Celsjusza");
+                System.exit(0);
+            } else if (Math.abs(temperatures[i]) < d)
+                d = Math.abs(temperatures[i]);
+        }
+
+        for (int i = 0; i < temperatures.length; i++)
+            if (Math.abs(temperatures[i]) == d)
+                result.add(temperatures[i]);
+
+        System.out.print("Temperatury najblizsze zeru to ");
+        for (int i = 0; i < result.size(); i++)
+            System.out.print(result.get(i)+" ");
+    }
+}
